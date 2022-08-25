@@ -711,7 +711,7 @@ async def auto_filter(client, msg, spoll=False):
         cap = f"Here is what i found for your query {search}"
     if imdb and imdb.get('poster'):
         try:
-            await message.reply_text(text=cap[:1024],
+            fmsg = await message.reply_text(text=cap[:1024],
                                       reply_markup=InlineKeyboardMarkup(btn))
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
@@ -719,11 +719,15 @@ async def auto_filter(client, msg, spoll=False):
             await message.reply_text(text=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
         except Exception as e:
             logger.exception(e)
-            await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+            fmsg = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
     else:
-        await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+        fmsg = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
     if spoll:
-        await msg.message.delete()
+        fmsg = await msg.message.delete() 
+  
+    await asyncio.sleep(10)
+    await message.delete()
+    await fmsg.delete()
 
 
 async def advantage_spell_chok(msg):
