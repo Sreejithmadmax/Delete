@@ -741,6 +741,7 @@ async def advantage_spell_chok(msg):
     if not g_s:
         k = await msg.reply("<b>ഇത് സ്പെല്ലിങ് പ്രോബ്ലം ആണ് ബ്രോ... സ്പെല്ലിങ് ഒന്നുകൂടി ഒന്ന് ചെക്ക് ചെയ്ത് നോക്കു ബ്രോ... ഉറപ്പായും സിനിമ ലഭിക്കും</b>")
         await asyncio.sleep(10)
+        await msg.delete()
         await k.delete()
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
@@ -770,6 +771,7 @@ async def advantage_spell_chok(msg):
     if not movielist:
         k = await msg.reply("<b>ഇത് സ്പെല്ലിങ് പ്രോബ്ലം ആണ് ബ്രോ.... ഒന്നുടെ ചെക്ക് ചെയ്ത് നോക്കാമോ😊")
         await asyncio.sleep(10)
+        await msg.delete()
         await k.delete()
         return
     SPELL_CHECK[msg.id] = movielist
