@@ -120,7 +120,7 @@ async def next_page(bot, query):
 async def advantage_spoll_choker(bot, query):
     _, user, movie_ = query.data.split('#')
     if int(user) != 0 and query.from_user.id != int(user):
-        return await query.answer("okDa", show_alert=True)
+        return await query.answer("Hey Boy😂", show_alert=True)
     if movie_ == "close_spellcheck":
         return await query.message.delete()
     movies = SPELL_CHECK.get(query.message.reply_to_message.id)
@@ -135,8 +135,8 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit('This Movie Not Found In DataBase')
-            await asyncio.sleep(10)
+            k = await query.message.edit('<b>⚡️ഒന്ന് വെയിറ്റ് ചെയ്യണേ സെറ്റ് ആക്കാം..\n⚡️Full Movie Database Setting ആണ് \n⚡️24 മണിക്കൂറിനുള്ളിൽ ഈ സിനിമ ആഡ് ആക്കും നെക്സ്റ്റ് സെർച്ചിൽ സിനിമ കിട്ടിയിരിക്കും</b> \n')
+            await asyncio.sleep(20)
             await k.delete()
 
 
@@ -739,8 +739,8 @@ async def advantage_spell_chok(msg):
     g_s += await search_gagala(msg.text)
     gs_parsed = []
     if not g_s:
-        k = await msg.reply("I couldn't find any movie in that name.")
-        await asyncio.sleep(8)
+        k = await msg.reply("<b>ഇത് സ്പെല്ലിങ് പ്രോബ്ലം ആണ് ബ്രോ... സ്പെല്ലിങ് ഒന്നുകൂടി ഒന്ന് ചെക്ക് ചെയ്ത് നോക്കു ബ്രോ... ഉറപ്പായും സിനിമ ലഭിക്കും</b>")
+        await asyncio.sleep(10)
         await k.delete()
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
@@ -768,8 +768,8 @@ async def advantage_spell_chok(msg):
     movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
-        k = await msg.reply("I couldn't find anything related to that. Check your spelling")
-        await asyncio.sleep(8)
+        k = await msg.reply("<b>ഇത് സ്പെല്ലിങ് പ്രോബ്ലം ആണ് ബ്രോ.... ഒന്നുടെ ചെക്ക് ചെയ്ത് നോക്കാമോ😊")
+        await asyncio.sleep(10)
         await k.delete()
         return
     SPELL_CHECK[msg.id] = movielist
@@ -780,7 +780,7 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
-    k = await msg.reply("✯ നിങ്ങൾ ഉദ്ദേശിച്ച മൂവി താഴെ കാണുന്ന വല്ലതും ആണ് എങ്കിൽ.അതിൽ ക്ലിക്ക് ചെയ്യുക\n<b>✯ ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴀᴛ ᴅɪᴅ ʏᴏᴜ ᴍᴇᴀɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇꜱᴇ?\n📯 ɴʙ:ᴄʟɪᴄᴋ ᴛʜᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟʏ ᴅᴏɴᴛ ᴜꜱᴇ ʏᴇᴀʀ ʙᴜᴛᴛᴏɴ \n📯 ɴʙ:സിനിമയുടെ പേരിൽ മാത്രം ക്ലിക്ക് ചെയ്യുക.. Date വരുന്നതിൽ ക്ലിക്ക് ചെയ്യരുത്.. മൂവി കിട്ടില്ല</b>",
+    k = await msg.reply("<b>✯ നിങ്ങൾ ഉദ്ദേശിച്ച മൂവി താഴെ കാണുന്ന വല്ലതും ആണ് എങ്കിൽ.അതിൽ ക്ലിക്ക് ചെയ്യുക\n✯ ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴀᴛ ᴅɪᴅ ʏᴏᴜ ᴍᴇᴀɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇꜱᴇ?\n📯 ɴʙ:ᴄʟɪᴄᴋ ᴛʜᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟʏ ᴅᴏɴᴛ ᴜꜱᴇ ʏᴇᴀʀ ʙᴜᴛᴛᴏɴ \n📯 ɴʙ:സിനിമയുടെ പേരിൽ മാത്രം ക്ലിക്ക് ചെയ്യുക.. Date വരുന്നതിൽ ക്ലിക്ക് ചെയ്യരുത്.. മൂവി കിട്ടില്ല</b>",
                     reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(10)
     await k.delete()
