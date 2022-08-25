@@ -726,9 +726,8 @@ async def auto_filter(client, msg, spoll=False):
         fmsg = await msg.message.delete() 
   
     await asyncio.sleep(120)
-    await message.delete()
     await fmsg.delete()
-
+    await message.delete()
 
 async def advantage_spell_chok(msg):
     query = re.sub(
@@ -741,8 +740,8 @@ async def advantage_spell_chok(msg):
     if not g_s:
         k = await msg.reply("<b>ഇത് സ്പെല്ലിങ് പ്രോബ്ലം ആണ് ബ്രോ... സ്പെല്ലിങ് ഒന്നുകൂടി ഒന്ന് ചെക്ക് ചെയ്ത് നോക്കു ബ്രോ... ഉറപ്പായും സിനിമ ലഭിക്കും</b>")
         await asyncio.sleep(10)
-        await msg.delete()
         await k.delete()
+        await msg.delete()
         return
     regex = re.compile(r".*(imdb|wikipedia).*", re.IGNORECASE)  # look for imdb / wiki results
     gs = list(filter(regex.match, g_s))
@@ -769,10 +768,10 @@ async def advantage_spell_chok(msg):
     movielist += [(re.sub(r'(\-|\(|\)|_)', '', i, flags=re.IGNORECASE)).strip() for i in gs_parsed]
     movielist = list(dict.fromkeys(movielist))  # removing duplicates
     if not movielist:
-        k = await msg.reply("<b>ഇത് സ്പെല്ലിങ് പ്രോബ്ലം ആണ് ബ്രോ.... ഒന്നുടെ ചെക്ക് ചെയ്ത് നോക്കാമോ😊")
+        k = await msg.reply("<b>ഇത് സ്പെല്ലിങ് പ്രോബ്ലം ആണ് ബ്രോ.... ഒന്നുടെ ചെക്ക് ചെയ്ത് നോക്കാമോ😊</b>")
         await asyncio.sleep(10)
-        await msg.delete()
         await k.delete()
+        await msg.delete()
         return
     SPELL_CHECK[msg.id] = movielist
     btn = [[
