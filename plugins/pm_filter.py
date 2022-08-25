@@ -135,7 +135,7 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit('<b>⚡️ഒന്ന് വെയിറ്റ് ചെയ്യണേ സെറ്റ് ആക്കാം..\n⚡️Full Movie Database Setting ആണ് \n⚡️24 മണിക്കൂറിനുള്ളിൽ ഈ സിനിമ ആഡ് ആക്കും നെക്സ്റ്റ് സെർച്ചിൽ സിനിമ കിട്ടിയിരിക്കും</b> \n')
+            k = await query.message.edit('<b>Plz Check Spelling Or Request At With @admin Command</b> \n')
             await asyncio.sleep(30)
             await k.delete()
 
