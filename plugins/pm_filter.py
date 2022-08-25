@@ -708,7 +708,7 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"Here is what i found for your query {search}"
+        cap = f"<b>🎥Tɪᴛʟᴇ</b> : {search}\nAlso Known As : N/A\n<b>🌟Rᴀᴛɪɴɢ</b> : N/A/ 10\n<b>⌚️Dᴜʀᴀᴛɪᴏɴ</b> : N/A Min\n<b>🅰Lᴀɴɢᴜᴀɢᴇ</b> : #N/A\n<b>⚙Gᴇɴʀᴇ</b> : #N/A\n<b>📀Rᴇʟᴇᴀꜱᴇ</b> : N/A\n"
     if imdb and imdb.get('poster'):
         try:
             fmsg = await message.reply_text(text=cap[:1024],
@@ -725,7 +725,7 @@ async def auto_filter(client, msg, spoll=False):
     if spoll:
         fmsg = await msg.message.delete() 
   
-    await asyncio.sleep(10)
+    await asyncio.sleep(120)
     await message.delete()
     await fmsg.delete()
 
@@ -780,7 +780,7 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
-    await msg.reply("I couldn't find anything related to that\nDid you mean any one of these?",
+    k = await msg.reply("✯ നിങ്ങൾ ഉദ്ദേശിച്ച മൂവി താഴെ കാണുന്ന വല്ലതും ആണ് എങ്കിൽ.അതിൽ ക്ലിക്ക് ചെയ്യുക\n<b>✯ ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏᴛʜɪɴɢ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ ᴛʜᴀᴛ ᴅɪᴅ ʏᴏᴜ ᴍᴇᴀɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇꜱᴇ?\n📯 ɴʙ:ᴄʟɪᴄᴋ ᴛʜᴇ ᴍᴏᴠɪᴇ ɴᴀᴍᴇ ᴏɴʟʏ ᴅᴏɴᴛ ᴜꜱᴇ ʏᴇᴀʀ ʙᴜᴛᴛᴏɴ \n📯 ɴʙ:സിനിമയുടെ പേരിൽ മാത്രം ക്ലിക്ക് ചെയ്യുക.. Date വരുന്നതിൽ ക്ലിക്ക് ചെയ്യരുത്.. മൂവി കിട്ടില്ല</b>",
                     reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(10)
     await k.delete()
